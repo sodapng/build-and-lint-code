@@ -6,8 +6,12 @@ branding:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
-    - uses: c-hive/gha-yarn-cache@v2
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'yarn'
     - name: Install modules
       run: yarn
       shell: bash
